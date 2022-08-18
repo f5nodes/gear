@@ -3,7 +3,8 @@
 if [ ! $NODENAME_GEAR ]; then
 	read -p "Nodename (a-z and 0-9 only): " NODENAME_GEAR
 fi
-echo 'Your nodename is ' $NODENAME_GEAR
+echo 'Your nodename is' $NODENAME_GEAR
+echo -e "\e[92mInstallation started...\e[0m"
 sleep 1
 echo 'export NODENAME='$NODENAME_GEAR >> $HOME/.profile
 curl -s https://raw.githubusercontent.com/f5nodes/root/main/install/rust.sh | bash &>/dev/null
