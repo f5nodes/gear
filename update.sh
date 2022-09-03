@@ -8,7 +8,7 @@ cd $HOME/.local/share/gear-node/chains
 sudo cp staging_testnet_v2/network/secret_ed25519 gear_staging_testnet_v3/network/secret_ed25519
 sudo systemctl start gear
 if [ "$language" = "uk" ]; then
-    if [[ `service gear-node status | grep active` =~ "running" ]]; then
+    if [[ `service gear status | grep active` =~ "running" ]]; then
         echo -e "\n\e[93mGear Node Updated!\e[0m\n"
         echo -e "Подивитись логи ноди \e[92mjournalctl -n 100 -f -u gear\e[0m"
         echo -e "\e[92mCTRL + C\e[0m щоб вийти з логів\n"
@@ -17,7 +17,7 @@ if [ "$language" = "uk" ]; then
         echo -e "\e[91mПомилка\e[39m під час оновлення Gear ноди."
     fi
 else
-    if [[ `service gear-node status | grep active` =~ "running" ]]; then
+    if [[ `service gear status | grep active` =~ "running" ]]; then
         echo -e "\n\e[93mGear Node Updated!\e[0m\n"
         echo -e "Check node logs \e[92mjournalctl -n 100 -f -u gear\e[0m"
         echo -e "\e[92mCTRL + C\e[0m to exit logs\n"
