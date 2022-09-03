@@ -4,6 +4,9 @@ $HOME/gear-node purge-chain -y
 wget https://builds.gear.rs/gear-nightly-linux-x86_64.tar.xz
 sudo tar -xvf gear-nightly-linux-x86_64.tar.xz -C $HOME
 rm gear-nightly-linux-x86_64.tar.xz
+sudo systemctl start gear
+sleep 2
+sudo systemctl stop gear
 cd $HOME/.local/share/gear-node/chains
 sudo cp staging_testnet_v2/network/secret_ed25519 gear_staging_testnet_v3/network/secret_ed25519
 sudo systemctl start gear
