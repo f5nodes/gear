@@ -15,10 +15,10 @@ source $HOME/.bashrc &>/dev/null
 source $HOME/.cargo/env &>/dev/null
 sleep 1
 
-wget https://builds.gear.rs/gear-nightly-linux-x86_64.tar.xz &>/dev/null
-tar xvf gear-nightly-linux-x86_64.tar.xz &>/dev/null
-rm gear-nightly-linux-x86_64.tar.xz &>/dev/null
-chmod +x $HOME/gear-node &>/dev/null
+wget https://get.gear.rs/gear-nightly-linux-x86_64.tar.xz && \
+tar xvf gear-nightly-linux-x86_64.tar.xz && \
+rm gear-nightly-linux-x86_64.tar.xz
+chmod +x $HOME/gear &>/dev/null
 
 sudo tee <<EOF >/dev/null /etc/systemd/journald.conf
 Storage=persistent
@@ -34,7 +34,7 @@ After=network.target
 Type=simple
 User=root
 WorkingDirectory=/root/
-ExecStart=/root/gear-node \
+ExecStart=/root/gear \
         --name $NODENAME_GEAR \
         --execution wasm \
 	--port 31333 \
@@ -58,7 +58,7 @@ if [ "$language" = "uk" ]; then
         echo -e "\n\e[93mGear Node\e[0m\n"
         echo -e "Подивитись логи ноди \e[92mjournalctl -n 100 -f -u gear\e[0m"
         echo -e "\e[92mCTRL + C\e[0m щоб вийти з логів\n"
-        echo -e "Зробіть бекап \e[92m$HOME/.local/share/gear-node/chains/gear_staging_testnet_v3/network\e[0m"
+        echo -e "Зробіть бекап \e[92m$HOME/.local/share/gear/chains/gear_staging_testnet_v3/network\e[0m"
     else
         echo -e "Ваша Gear нода \e[91mбула встановлена неправильно\e[39m, виконайте перевстановлення."
     fi
@@ -67,7 +67,7 @@ else
         echo -e "\n\e[93mGear Node\e[0m\n"
         echo -e "Check node logs \e[92mjournalctl -n 100 -f -u gear\e[0m"
         echo -e "\e[92mCTRL + C\e[0m to exit logs\n"
-        echo -e "Backup \e[92m$HOME/.local/share/gear-node/chains/gear_staging_testnet_v3/network\e[0m"
+        echo -e "Backup \e[92m$HOME/.local/share/gear/chains/gear_staging_testnet_v3/network\e[0m"
     else
       echo -e "Your Gear Node \e[91mwas not installed correctly\e[39m, please reinstall."
     fi
