@@ -1,5 +1,7 @@
 # gear node
 
+version: staging testnet v4
+
 ## Installing
 
 1. Run the script:
@@ -8,7 +10,7 @@
 . <(wget -qO- sh.f5nodes.com) gear
 ```
 
-2. Wait till the end of installation, then enter your nodename in the input.
+2. Enter your nodename in the input.
 
 ## Commands
 
@@ -19,3 +21,13 @@ journalctl -n 100 -f -u gear
 ```
 
 **CTRL + C** to exit logs
+
+#### Delete node:
+
+```sh
+sudo systemctl stop gear
+sudo systemctl disable gear
+sudo rm -rf /root/.local/share/gear
+sudo rm /etc/systemd/system/gear.service
+sudo rm /root/gear
+```
