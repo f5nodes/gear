@@ -31,3 +31,5 @@ sudo rm -rf /root/.local/share/gear
 sudo rm /etc/systemd/system/gear.service
 sudo rm /root/gear
 ```
+
+v6 upd
