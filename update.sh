@@ -9,11 +9,8 @@ sudo systemctl start gear
 sleep 2
 sudo systemctl stop gear
 cd $HOME/.local/share/gear/chains
-mkdir -p gear_stable_testnet/network/ gear_staging_testnet_v4/network/
-mkdir -p gear_stable_testnet/network/ gear_staging_testnet_v4/network/ gear_staging_testnet_v5/network/
-sudo cp gear_staging_testnet_v3/network/secret_ed25519 gear_staging_testnet_v4/network/secret_ed25519
-sudo cp gear_staging_testnet_v4/network/secret_ed25519 gear_stable_testnet/network/secret_ed25519
-sudo cp gear_staging_testnet_v3/network/secret_ed25519 gear_staging_testnet_v5/network/secret_ed25519
+mkdir -p gear_staging_testnet_v6/network/
+sudo cp gear_staging_testnet_v5/network/secret_ed25519 gear_staging_testnet_v6/network/secret_ed25519
 sudo systemctl start gear
 if [ "$language" = "uk" ]; then
     if [[ `service gear status | grep active` =~ "running" ]]; then
