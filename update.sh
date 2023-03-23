@@ -1,7 +1,6 @@
 #!/bin/bash
 sudo systemctl stop gear
 $HOME/gear purge-chain -y
-rm -rvf /root/.local/share/gear-node/chains/gear_staging_testnet_v3/db
 wget https://get.gear.rs/gear-nightly-linux-x86_64.tar.xz
 sudo tar -xvf gear-nightly-linux-x86_64.tar.xz -C /root
 rm gear-nightly-linux-x86_64.tar.xz
@@ -9,8 +8,8 @@ sudo systemctl start gear
 sleep 2
 sudo systemctl stop gear
 cd $HOME/.local/share/gear/chains
-mkdir -p gear_staging_testnet_v6/network/
-sudo cp gear_staging_testnet_v5/network/secret_ed25519 gear_staging_testnet_v6/network/secret_ed25519
+mkdir -p gear_staging_testnet_v7/network/
+sudo cp gear_staging_testnet_v6/network/secret_ed25519 gear_staging_testnet_v7/network/secret_ed25519
 sudo systemctl start gear
 if [ "$language" = "uk" ]; then
     if [[ `service gear status | grep active` =~ "running" ]]; then
