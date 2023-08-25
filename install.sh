@@ -15,9 +15,9 @@ source $HOME/.bashrc &>/dev/null
 source $HOME/.cargo/env &>/dev/null
 sleep 1
 
-wget https://get.gear.rs/gear-nightly-linux-x86_64.tar.xz
-sudo tar -xvf gear-nightly-linux-x86_64.tar.xz -C /root
-rm gear-nightly-linux-x86_64.tar.xz
+wget https://get.gear.rs/gear-v0.3.1-x86_64-unknown-linux-gnu.tar.xz
+sudo tar -xvf gear-v0.3.1-x86_64-unknown-linux-gnu.tar.xz -C /root
+rm gear-v0.3.1-x86_64-unknown-linux-gnu.tar.xz
 chmod +x $HOME/gear &>/dev/null
 
 sudo tee <<EOF >/dev/null /etc/systemd/journald.conf
